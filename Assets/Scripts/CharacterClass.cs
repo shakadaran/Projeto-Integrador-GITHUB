@@ -18,13 +18,11 @@ public class CharacterClass : MonoBehaviour {
     public void sufferingDMG(float dmg)
     {
         Life = Life - dmg;
-        
+        if (Life < 0)
+            onDeath();
     }
     void onDeath()
-    {
-        if (Life < 0)
-        {
-            anim.SetBool("Death", true);
-        }
+    {       
+            anim.SetBool("Dead", true);        
     }
 }

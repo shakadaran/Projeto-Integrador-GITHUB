@@ -9,7 +9,7 @@ public class CharacterControl : MonoBehaviour {
     public Vector3  combo ;     //          and power
     public MainCharAtack shortcut;// atalho pro script de dano
     public bool takingdmg; // variavel de tomar porrada
-    private Vector3 moveDir = Vector3.zero;
+    public Vector3 moveDir = Vector3.zero;
     public float spdc,strspdc,rspdc;
     CharacterController controller;
 	// Use this for initialization
@@ -23,26 +23,24 @@ public class CharacterControl : MonoBehaviour {
 	void Update ()
     {
       
-            if (spdc != 0 || strspdc != 0)
+            if (spdc != 0 || strspdc != 0 || rspdc!=0)
             {
                 animcontrol.SetBool("Moving", true);
             }
             else animcontrol.SetBool("Moving", false);
+
             if (Input.GetAxis("Fire1") > 0)
             {               
                 animcontrol.SetBool("PowerAtack", true);               
                 shortcut.attacked.gameObject.GetComponentInParent<EnemyClass>().sufferingDMG(1);                
             }
-
-            else animcontrol.SetBool("PowerAtack", false);            
+            else animcontrol.SetBool("PowerAtack", false);          
            
-
             if (Input.GetAxis("Fire2") > 0)
             {                
                 animcontrol.SetBool("MediumAtack", true);
                 shortcut.attacked.gameObject.GetComponentInParent<EnemyClass>().sufferingDMG(1);
-        }
-
+            }
             else animcontrol.SetBool("MediumAtack", false);        
            
         h = Input.GetAxis("Horizontal");
@@ -51,6 +49,7 @@ public class CharacterControl : MonoBehaviour {
             animcontrol.SetBool("strafing", true);
         }
         else animcontrol.SetBool("strafing", false);
+
         v = Input.GetAxis("Vertical");
         r = Input.GetAxis("Mouse X");
         spdc = animcontrol.GetFloat("LinearSpd");

@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     private RaycastHit hit;
     public Vector3 offset;
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         transform.LookAt(target.transform);
 

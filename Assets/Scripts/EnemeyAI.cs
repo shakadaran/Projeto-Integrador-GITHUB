@@ -4,17 +4,14 @@ using System.Collections;
 public class EnemeyAI : MonoBehaviour {
     public GameObject Jogador;
     public Vector3 distancia;
-    private float dist ,velocity,rotation;
+    public float dist ,velocity,rotation,prevRot=0;
     public Animator anim;
 
     NavMeshAgent agent;
 
     // Use this for initialization
     void Start () {
-        agent = GetComponent<NavMeshAgent>();
-       
-
-        
+        agent = GetComponent<NavMeshAgent>();                  
     }
 	
 	// Update is called once per frame
@@ -22,20 +19,20 @@ public class EnemeyAI : MonoBehaviour {
         agent.destination = Jogador.transform.position;
         distancia = transform.position - Jogador.transform.position;
         dist = distancia.magnitude;
-        velocity = agent.desiredVelocity.magnitude;
-        rotation = agent.angularSpeed;
-        //anim.SetFloat("LinearSpd", dist);
-        anim.SetFloat("AngularSpd", 0);
+        velocity = agent.velocity.magnitude;
+        rotation = prevRot- transform.rotation.y;
+        anim.SetFloat("LinearSpd", velocity);
+        anim.SetFloat("AngularSpd", rotation);
         if (dist < 2.5)
         {
             anim.SetBool("Atack", true);
         }
         else anim.SetBool("Atack", false);
-
+        
     }
-
-
-  
-   
+    void LateUpdate()
+    {
+        prevRot = transform.rotation.y;
+    }
 }
 
