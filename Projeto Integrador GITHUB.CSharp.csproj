@@ -63,29 +63,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AQUAS-Lite\Demo\SplineController\MathUtils.cs" />
-    <Compile Include="Assets\AQUAS-Lite\Demo\SplineController\SplineController.cs" />
-    <Compile Include="Assets\AQUAS-Lite\Demo\SplineController\SplineInterpolator.cs" />
-    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Camera.cs" />
-    <Compile Include="Assets\AQUAS-Lite\Scripts\AQUAS_Reflection.cs" />
-    <Compile Include="Assets\Scripts\Agua1.cs" />
-    <Compile Include="Assets\Scripts\Atack.cs" />
-    <Compile Include="Assets\Scripts\Blocking.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\CharacterClass.cs" />
-    <Compile Include="Assets\Scripts\CharacterControl.cs" />
-    <Compile Include="Assets\Scripts\EnemeyAI.cs" />
-    <Compile Include="Assets\Scripts\EnemyClass.cs" />
-    <Compile Include="Assets\Scripts\MainCharAtack.cs" />
-    <Compile Include="Assets\Scripts\MouseAimCamera.cs" />
-    <Compile Include="Assets\Scripts\MouseLock.cs" />
-    <Compile Include="Assets\Scripts\TakingDMG.cs" />
+    <Compile Include="Assets\Resources\Sound\Authentic Medieval Ages Audio Pack (free)\Scripts\random_guitar.cs" />
+    <Compile Include="Assets\Resources\Sound\Authentic Medieval Ages Audio Pack (free)\Scripts\title.cs" />
+    <Compile Include="Assets\Scripts\Animations\Atack.cs" />
+    <Compile Include="Assets\Scripts\Animations\Blocking.cs" />
+    <Compile Include="Assets\Scripts\Animations\TakingDMG.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemeyAI.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyClass.cs" />
+    <Compile Include="Assets\Scripts\MChar\CharacterClass.cs" />
+    <Compile Include="Assets\Scripts\MChar\CharacterControl.cs" />
+    <Compile Include="Assets\Scripts\MChar\MainCharAtack.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\CustomizablePowerUp.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\PowerUpManager.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\PowerUpRotation.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\ScaleParticles.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\TakeablePowerUp.cs" />
+    <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\Utility\Singleton.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\CastSpell.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\DamageByFlag.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\DestroyObject.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\DestroyParticle.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\Enemy.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\Spell.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\SpellGUI.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\SpellManager.cs" />
+    <Compile Include="Assets\Scripts\SpellMaker\SpellObjectConfigurator.cs" />
+    <Compile Include="Assets\SpellMaker\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\AQUAS-Lite\Readme.txt" />
-    <None Include="Assets\AQUAS-Lite\Shaders\AQUAS-Lite.shader" />
-    <None Include="Assets\Textura_agua\fx-water_nonreflectalpha.shader" />
-    <None Include="Assets\seaFoamCoast\foamShader.shader" />
+    <None Include="Assets\Particulas\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+    <None Include="Assets\Resources\Sound\Authentic Medieval Ages Audio Pack (free)\README FIRST.txt" />
+    <None Include="Assets\Resources\Sound\medieval_battle_free\readme.txt" />
+    <None Include="Assets\SpellMaker\SkeletonData\animations.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
