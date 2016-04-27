@@ -1,41 +1,78 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemeyAI : MonoBehaviour {
-    public GameObject Jogador;
-    public GameObject child;
-    public Vector3 distancia;
-    public float dist ,velocity,rotation,prevRot=0;
-    public Animator anim;
-
+public class EnemeyAI : MonoBehaviour
+{
+    public float attackRate = .2f;
+    float attackR;
+    bool attacking;
+    public float attackRange = 3;
+    public GameObject damageCollider;
+    Animator anim;
     NavMeshAgent agent;
-
+    public Transform target;
     // Use this for initialization
-    void Start () {
-        agent = GetComponent<NavMeshAgent>();                  
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        agent.destination = Jogador.transform.position;
-        distancia = transform.position - Jogador.transform.position;
-        dist = distancia.magnitude;
-        velocity = agent.velocity.magnitude;
-        rotation = prevRot- transform.rotation.y;
-        anim.SetFloat("LinearSpd", velocity);
-        anim.SetFloat("AngularSpd", rotation);
-        if (dist < 2.5)
-        {
-            anim.SetBool("Atack", true);
-            child.GetComponent<BoxCollider>().enabled = true;
-        }
-        else  anim.SetBool("Atack", false);          
-        
-
-    }
-    void LateUpdate()
+    void Start()
     {
-        prevRot = transform.rotation.y;
+        anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = attackRange;
+        //agent.updateRotation = false;
+        
     }
-}
+    // Update is called once per frame
+    void Update()
+    {
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance < attackRange + 4f)
+        {
+            attacking = true;
+        }
+        else
+        {
+            attacking = false;
+        }
+        if (!attacking)
+        {
+            agent.Resume();
+            agent.SetDestination(target.position);
 
+            Vector3 relativePosition = transform.InverseTransformDirection(agent.desiredVelocity);
+
+            float hor = relativePosition.magnitude;// relativePosition.z;
+            float vert = relativePosition.x;
+            anim.SetFloat("LinearSpd", hor,0.6f,Time.deltaTime);
+            //anim.SetFloat("AngularSpd", hor,0.6f, Time.deltaTime);
+        }
+        else
+        {
+            agent.Stop();
+            Vector3 relativePosition = transform.InverseTransformDirection(agent.desiredVelocity);
+            float hor = relativePosition.magnitude;//relativePosition.z;
+            float vert = relativePosition.x;
+            anim.SetFloat("LinearSpd", hor,0.6f,Time.deltaTime);
+            //anim.SetFloat("AngularSpd", hor,0.6f,Time.deltaTime);
+            attackR += Time.deltaTime;
+            if (attackR > attackRate)
+            {
+                anim.SetBool("Atack", true);
+                StartCoroutine("CloseAttack");
+                attackR = 0;
+            }
+        }
+    }
+    IEnumerator CloseAttack()
+    {
+        yield return new WaitForSeconds(.4f);
+        anim.SetBool("Atack", false);
+    }
+    public void OpenDamageCollider()
+    {
+        damageCollider.SetActive(true);
+    }
+    public void CloseDamageCollider()
+    {
+        damageCollider.SetActive(false);
+    }
+
+}

@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Atack : StateMachineBehaviour {
+public class EnableMove : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
+	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        Transform trans = animator.transform;
+        if (trans.GetComponent<PlayerInputs>())
+        {
+            trans.GetComponent<CharacterControl>().canMove = true;
+        }
+	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -14,11 +18,10 @@ public class Atack : StateMachineBehaviour {
 	//}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.gameObject.GetComponentInChildren<MainCharAtack>().attacked = animator.gameObject.GetComponentInChildren<MainCharAtack>().empty;
-        animator.gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
-    }
+	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//
+	//}
+
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//

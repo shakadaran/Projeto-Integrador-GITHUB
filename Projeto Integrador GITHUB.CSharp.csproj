@@ -65,15 +65,16 @@
   <ItemGroup>
     <Compile Include="Assets\Resources\Sound\Authentic Medieval Ages Audio Pack (free)\Scripts\random_guitar.cs" />
     <Compile Include="Assets\Resources\Sound\Authentic Medieval Ages Audio Pack (free)\Scripts\title.cs" />
-    <Compile Include="Assets\Scripts\Animations\Atack.cs" />
-    <Compile Include="Assets\Scripts\Animations\Blocking.cs" />
-    <Compile Include="Assets\Scripts\Animations\TakingDMG.cs" />
+    <Compile Include="Assets\Scripts\Animations\EnableMove.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DoDamage.cs" />
+    <Compile Include="Assets\Scripts\DoDamage1.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemeyAI.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyClass.cs" />
     <Compile Include="Assets\Scripts\MChar\CharacterClass.cs" />
     <Compile Include="Assets\Scripts\MChar\CharacterControl.cs" />
-    <Compile Include="Assets\Scripts\MChar\MainCharAtack.cs" />
+    <Compile Include="Assets\Scripts\PlayerAtack.cs" />
+    <Compile Include="Assets\Scripts\PlayerInputs.cs" />
     <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\CustomizablePowerUp.cs" />
     <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\PowerUpRelated\Scripts\PowerUpRotation.cs" />
