@@ -24,7 +24,7 @@ public class EnemeyAI : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, target.position);
-        if (distance < attackRange + 4f)
+        if (distance < attackRange+4f)
         {
             attacking = true;
         }
@@ -46,6 +46,7 @@ public class EnemeyAI : MonoBehaviour
         }
         else
         {
+            
             agent.Stop();
             Vector3 relativePosition = transform.InverseTransformDirection(agent.desiredVelocity);
             float hor = relativePosition.magnitude;//relativePosition.z;

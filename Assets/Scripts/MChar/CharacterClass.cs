@@ -54,6 +54,12 @@ public class CharacterClass : MonoBehaviour {
             }
         }
 	}
+
+    public void GetHit(int damage)
+    {       
+        Life -= damage;
+
+    }
     public void checkToApplyDamage()
     {
         if (!dealDamage)
@@ -64,8 +70,8 @@ public class CharacterClass : MonoBehaviour {
    IEnumerator CloseDamage()
     {
         Debug.Log("Closing dmg");
-        yield return damageT;
         dealDamage = false;
         substractOnce = false;
+        yield return damageT;
     }
 }

@@ -156,7 +156,7 @@ public class SpellObjectConfigurator : MonoBehaviour {
 				//You can implement a your own damage script.This is an example.(col) means a enemy.
 				//DamageScript ds = col.gameObject.GetComponent<DamageScript>();
 				//ds.TakeDamage(damage); or ds.health -= damage;
-				myTarget.gameObject.GetComponent<Enemy>().GetHit(Random.Range(spell.spellMinDamage,spell.spellMaxDamage));
+				myTarget.gameObject.GetComponent<CharacterClass>().GetHit(Random.Range(spell.spellMinDamage,spell.spellMaxDamage));
 
 				//This is for dot only.
 				if(damageByFlag && damageByFlag.check == false)
@@ -177,7 +177,7 @@ public class SpellObjectConfigurator : MonoBehaviour {
 			//You can implement a your own damage script.This is an example.(col) means a enemy in this sitiuation.
 			//PlayerDamageScript pds = col.gameObject.GetComponent<PlayerDamageScript>();
 			//pds.TakeDamage(); or pds.health -= damage;
-			col.gameObject.GetComponent<Enemy>().GetHit(Random.Range(spell.spellMinDamage,spell.spellMaxDamage));
+			col.gameObject.GetComponent<CharacterClass>().GetHit(Random.Range(spell.spellMinDamage,spell.spellMaxDamage));
 
 			Destroy(this.gameObject);
 			

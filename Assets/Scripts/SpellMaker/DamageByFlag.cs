@@ -62,7 +62,7 @@ public class DamageByFlag : MonoBehaviour {
 			yield return new WaitForSeconds(time);
 			//Do (damage over time)damage
 			//target.GetComponent<HealthScript>().health -= damage;
-			target.gameObject.GetComponent<Enemy>().GetHit(damage);
+			target.gameObject.GetComponent<CharacterClass>().GetHit(damage);
 			Instantiate(dotEffect,target.position,Quaternion.identity);
 			count ++;
 
